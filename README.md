@@ -1,0 +1,10 @@
+import marshal
+file = input("type name file with extension -->  :")
+Open_read = open(file).read()
+Compel = compile(Open_read, "", "exec")
+Dumps = marshal.dumps(Compel)
+Start = open("Uncode-"+file, "w")
+Start.write("import marshal\n")
+Start.write("exec(marshal.loads("+ repr(Dumps)+ "))")
+Start.close()
+print("{+} Done")
